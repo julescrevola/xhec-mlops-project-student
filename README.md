@@ -112,7 +112,7 @@ pip install -r requirements-dev.txt
 
 **Option 2: Using conda**
 
-- If you're using conda, create and activate a new environment from the environment.yml 
+- If you're using conda, create and activate a new environment from the environment.yml
 ```bash
 conda env create -f environment.yml
 conda activate <env_name>
@@ -168,4 +168,85 @@ Setting Up Your Environment
 
 **Place the kaggle.json File:**
 
-Move the downloaded kaggle.json file to the appropriate directory ~/notebooks/
+Move the downloaded kaggle.json file to the appropriate directory ~/src/modelling
+
+# FastAPI Model Service
+
+## Usage
+
+### Running the FastAPI Application
+
+Make sure your pre-trained model and preprocessor files are in the correct directory:
+```
+web_service/local_objects/random_forest.pkl
+web_service/local_objects/preprocessor.pkl
+```
+
+Run the FastAPI application:
+```bash
+uvicorn main:app --reload
+```
+
+This command will start the server, and you can access the API at [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+### Making Predictions
+
+You can make predictions by sending a POST request to the `/predict` endpoint. You can use tools like Postman, cURL, or Python's requests library.
+
+#### Example Request
+
+Here’s how to send a POST request with sample data:
+
+Using cURL:
+```bash
+curl -X POST "http://127.0.0.1:8000/predict" \
+-H "Content-Type: application/json" \
+-d '{
+    "Length": 0.455,
+    "Diameter": 0.365,
+    "Height": 0.095,
+    "Whole_weight": 0.514,
+    "Shucked_weight": 0.224,
+    "Viscera_weight": 0.101,
+    "Shell_weight": 0.150,
+    "Sex": "M"
+}'
+```
+
+## Building and Running with Docker
+
+### Building the Docker Image
+
+To build the Docker image, ensure you are in the root directory of the project (where the `Dockerfile` is located) and run the following command:
+
+```bash
+docker build -t fastapi-model-service .
+```
+
+This command will create a Docker image named `fastapi-model-service`.
+
+### Running the Docker Container
+
+Once the image is built, you can run a container from the image using the following command:
+
+```bash
+docker run -d -p 8000:8000 fastapi-model-service
+```
+
+This will start a container and map port `8000` on your host to port `8000` in the container. You can now access the API at [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+### Stopping the Container
+
+To stop the running container, first find its container ID:
+
+```bash
+docker ps
+```
+
+Then stop it using:
+
+```bash
+docker stop <container_id>
+```
+
+Replace `<container_id>` with the actual container ID.
