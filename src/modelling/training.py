@@ -1,8 +1,10 @@
-import pandas as pd 
+"""Functions for training machine learning models."""
+import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 
+
 def fit_random_forest(
-    X_train: pd.DataFrame,
+    x_train: pd.DataFrame,
     y_train: pd.Series,
     n_estimators: int = 100,
     random_state: int = 42,
@@ -12,7 +14,7 @@ def fit_random_forest(
 
     Parameters:
     ----------
-    X_train : pd.DataFrame
+    x_train : pd.DataFrame
         The training feature DataFrame.
     y_train : pd.Series
         The training target variable.
@@ -26,8 +28,7 @@ def fit_random_forest(
     RandomForestRegressor
         The fitted Random Forest regression model.
     """
-
-    model = RandomForestRegressor(n_estimators=n_estimators, random_state=random_state)
-    model.fit(X_train, y_train)
+    model = RandomForestRegressor(n_estimators=n_estimators, random_state=random_state)  # noqa
+    model.fit(x_train, y_train)
 
     return model
