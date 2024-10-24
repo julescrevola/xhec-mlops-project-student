@@ -92,3 +92,5 @@ synth-env/
 #Not adding data sources
 data/abalone.csv
 
+# Not adding mlflow artifacts
+mlruns/
