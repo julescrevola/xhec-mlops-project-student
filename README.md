@@ -36,17 +36,6 @@ You can download the dataset on the [Kaggle page](https://www.kaggle.com/dataset
 
 </details>
 
-## Table of Contents
-
-- [xhec-mlops-project-student](#xhec-mlops-project-student)
-  - [Table of Contents](#table-of-contents)
-  - [Deliverables and Evaluation](#deliverables-and-evaluation)
-    - [Deliverables](#deliverables)
-    - [Evaluation](#evaluation)
-  - [Steps to reproduce to build the deliverable](#steps-to-reproduce-to-build-the-deliverable)
-    - [Pull requests in this project](#pull-requests-in-this-project)
-    - [Tips to work on this project](#tips-to-work-on-this-project)
-
 # Environment Setup
 
 This section outlines the steps to set up the Python environment for this project.
@@ -109,14 +98,34 @@ To download the dataset for this project, you will need to use the opendatasets 
 
 **Kaggle Account:**
 
-You must have a Kaggle account. If you don’t have one, you can sign up at Kaggle.
+You must have a Kaggle account. If you don’t have one, you can sign up at Kaggle. When running the code for the first time in order to retrieve the data, you'll have to input your Kaggle username and your password.
 
-**Create Kaggle API Token**
+### 4. Run the Prefect UI & Worflow
 
-Go to your Kaggle account settings by clicking on your profile picture in the top right corner and selecting "Account".
-Scroll down to the "API" section and click on the "Create New API Token" button. This will download a file named kaggle.json.
-Setting Up Your Environment
+**1: Configure the Prefect API and start the Prefect server**
 
-**Place the kaggle.json File:**
+```bash
+prefect config set PREFECT_API_URL=http://0.0.0.0:4200/api
+prefect server start --host 0.0.0.0
+```
+Make sure the server is running and accessible.
 
-Move the downloaded kaggle.json file to the appropriate directory ~/notebooks/
+**2: Create the Flow**
+
+Once the server is up and running, navigate to the src/modelling directory and ensure you have activated the correct environment.
+
+Now, create the flow by running the following:
+```bash
+python workflow.py
+```
+
+![Prefect UI Example](./assets/PrefectOutput2.jpeg)
+
+**3: Deploy or Schedule the Flow**
+
+The flow will be deployed and ran automatically each Sunday at Midnight
+```bash
+python deployment.py
+```
+
+![Prefect UI Example](./assets/PrefectOutput.jpeg)

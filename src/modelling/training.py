@@ -1,8 +1,10 @@
 """Functions for training machine learning models."""
 import pandas as pd
+from prefect import task
 from sklearn.ensemble import RandomForestRegressor
 
 
+@task(name="Train model")
 def fit_random_forest(
     x_train: pd.DataFrame,
     y_train: pd.Series,
