@@ -2,10 +2,12 @@
 
 import numpy as np
 import pandas as pd
+from prefect import task
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 
 
+@task(name="Make predictions")
 def predict(model: RandomForestRegressor, x_new: pd.DataFrame) -> pd.Series:
     """Make predictions using the fitted Random Forest regression model.
 
@@ -24,6 +26,7 @@ def predict(model: RandomForestRegressor, x_new: pd.DataFrame) -> pd.Series:
     return model.predict(x_new)
 
 
+@task(name="Evaluate model")
 def evaluate_rmse(y_true: pd.Series, y_pred: pd.Series) -> float:
     """
     Evaluate the performance of the model using Root Mean Squared Error (RMSE).
