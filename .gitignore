@@ -185,3 +185,10 @@ secrets/*
 *.csv 
 data
 abalone-dataset
+# Not adding mlflow artifacts
+mlruns/
+
+
+# Ignore compiled requirements file
+requirements.txt
+requirements-dev.txt
