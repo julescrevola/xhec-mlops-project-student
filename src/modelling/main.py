@@ -2,7 +2,7 @@ from pathlib import Path
 from load_data import download_data, load_data
 from preprocessing import get_preprocessing_pipeline, compute_target, split_data
 from training import fit_random_forest
-from utils import save_pickle
+from utils import pickle_obj
 
 import argparse
 
@@ -22,13 +22,13 @@ def main(trainset_path: Path) -> None:
     X_test_preprocessed = preprocessor.transform(X_test)
 
     # Pickle encoder
-    save_pickle(path="web_service/local_objects/preprocessor.pkl", obj=preprocessor)
+    pickle_obj(obj=preprocessor, filepath="web_service/local_objects/preprocessor.pkl")
 
     # Train model
     model = fit_random_forest(X_train_preprocessed, y_train)
 
     # Pickle model --> The model should be saved in pkl format the `src/web_service/local_objects` folder
-    save_pickle(path="web_service/local_objects/preprocessor.pkl", obj=model)
+    pickle_obj(obj=model, filepath="web_service/local_objects/preprocessor.pkl")
 
 
 
