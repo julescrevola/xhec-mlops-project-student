@@ -24,12 +24,12 @@ def main(trainset_path: Path) -> None:
     x_test_preprocessed = preprocessor.transform(x_test)
 
     # Pickle encoder
-    pickle_obj(obj=preprocessor, filepath="../web_service/local_objects/preprocessor.pkl")  # noqa
+    pickle_obj(obj=preprocessor, filepath="src/web_service/preprocessor.pkl")  # noqa
 
     # Train model
     model = fit_random_forest(x_train_preprocessed, y_train)
 
-    pickle_obj(obj=model, filepath="../web_service/local_objects/random_forest.pkl")  # noqa
+    pickle_obj(obj=model, filepath="src/web_service/random_forest.pkl")  # noqa
 
     # Predict
     y_pred = predict(model, x_test_preprocessed)
