@@ -190,7 +190,7 @@ kaggle.json
 
 # Not adding mlflow artifacts
 mlruns/
-
+temp/
 
 # Ignore compiled requirements file
 requirements.txt
