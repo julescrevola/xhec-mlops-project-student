@@ -1,19 +1,35 @@
-# This module is the training flow: it reads the data, preprocesses it, trains a model and saves it.
+from pathlib import Path
+from load_data import download_data, load_data
+from preprocessing import get_preprocessing_pipeline, compute_target, split_data
+from training import fit_random_forest
+from utils import save_pickle
 
 import argparse
 
+path = download_data()
 
 def main(trainset_path: Path) -> None:
     """Train a model using the data at the given path and save the model (pickle)."""
     # Read data
+    df = load_data(trainset_path)
 
     # Preprocess data
+    preprocessor = get_preprocessing_pipeline(df)
+    X, y = compute_target(df, target_column="Rings")
+    X_train, X_test, y_train, y_test = split_data(X, y)
 
-    # (Optional) Pickle encoder if need be
+    X_train_preprocessed = preprocessor.fit_transform(X_train)
+    X_test_preprocessed = preprocessor.transform(X_test)
+
+    # Pickle encoder
+    save_pickle(path="web_service/local_objects/preprocessor.pkl", obj=preprocessor)
 
     # Train model
+    model = fit_random_forest(X_train_preprocessed, y_train)
 
     # Pickle model --> The model should be saved in pkl format the `src/web_service/local_objects` folder
+    save_pickle(path="web_service/local_objects/preprocessor.pkl", obj=model)
+
 
 
 if __name__ == "__main__":
