@@ -15,6 +15,7 @@ def pickle_obj(obj, filepath: str) -> None:
 
 @task(name="Save pickle")
 def save_pickle(path: str, obj: Any):
+    """Save Pickle."""
     with open(path, "wb") as f:
         pickle.dump(obj, f)
 
