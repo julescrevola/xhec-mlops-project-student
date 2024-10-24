@@ -37,7 +37,7 @@ def compute_target(df: pd.DataFrame, target_column: str) -> Tuple[pd.DataFrame, 
 
     # separate features and target variable
     X = df.drop(columns=[target_column])
-    y = df[target_column]
+    y = df[target_column] + 1.5
 
     return X, y
 
