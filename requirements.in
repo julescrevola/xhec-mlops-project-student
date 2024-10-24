@@ -6,3 +6,15 @@ prefect==2.13.7
 loguru==0.7.2
 griffe<1.0.0
 pydantic<2
+
+### used in eda
+numpy==2.0.2
+matplotlib==3.9.2
+matplotlib-inline==0.1.7
+spicy==0.16.0
+ydata-profiling==4.11.0
+plotly==5.24.1
+scikit-learn==1.5.2
+
+
+
