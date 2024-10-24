@@ -17,3 +17,5 @@ ipykernel>=6.0.0
 nbformat>=4.2.0
 ipywidgets
 kaleido
+python-dotenv==1.0.1
+opendatasets==0.1.22
