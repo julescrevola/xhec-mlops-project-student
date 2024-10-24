@@ -71,23 +71,27 @@ cd <repository-directory>
 
 ### 2. Set Up the Python Environment
 
-**Option 1: Using pip**
+**Using conda**
 
 - Install the app dependencies by running the following command:
 ```bash
-pip install -r requirements.txt
+pip-compile requirements.in
 ```
 
 - If you are contributing to the development of this project, install the development dependencies:
 ```bash
-pip install -r requirements-dev.txt
+pip-compile requirements-dev.in
 ```
 
-**Option 2: Using conda**
-
-- If you're using conda, create and activate a new environment from the environment.yml 
+- If you're using conda, create and activate a new environment from the environment.yml
 ```bash
 conda env create -f environment.yml
+conda activate <env_name>
+```
+
+- If you need to update the environment after having compiled the requirements with new packages, you can run
+```bash
+conda env update -f environment.yml --prune
 conda activate <env_name>
 ```
 
@@ -99,3 +103,20 @@ Install the pre-commit hooks defined in ```pre-commit-config.yaml```
 ```bash
 pre-commit install
 ```
+
+### 3. Downloading the Dataset
+To download the dataset for this project, you will need to use the opendatasets library. Follow these steps:
+
+**Kaggle Account:**
+
+You must have a Kaggle account. If you don’t have one, you can sign up at Kaggle.
+
+**Create Kaggle API Token**
+
+Go to your Kaggle account settings by clicking on your profile picture in the top right corner and selecting "Account".
+Scroll down to the "API" section and click on the "Create New API Token" button. This will download a file named kaggle.json.
+Setting Up Your Environment
+
+**Place the kaggle.json File:**
+
+Move the downloaded kaggle.json file to the appropriate directory ~/notebooks/
