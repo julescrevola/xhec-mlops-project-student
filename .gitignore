@@ -186,7 +186,7 @@ secrets/*
 data/
 notebooks/abalone-dataset/
 kaggle.json
-
+abalone-dataset/
 
 # Not adding mlflow artifacts
 mlruns/
