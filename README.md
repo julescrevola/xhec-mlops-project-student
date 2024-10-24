@@ -84,7 +84,7 @@ pip install -r requirements-dev.txt
 
 **Option 2: Using conda**
 
-- If you're using conda, create and activate a new environment from the environment.yml 
+- If you're using conda, create and activate a new environment from the environment.yml
 ```bash
 conda env create -f environment.yml
 conda activate <env_name>
