@@ -35,3 +35,12 @@ extend-exclude = '''
 [tool.isort]
 profile = "black"
 known_first_party = ["src"]
+
+[tool.flake8]
+max-line-length = 100
+max-complexity = 10
+extend-exclude = '''
+/(
+  | __pycache__
+)/
+'''
