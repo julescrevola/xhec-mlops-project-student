@@ -102,3 +102,20 @@ Install the pre-commit hooks defined in ```pre-commit-config.yaml```
 ```bash
 pre-commit install
 ```
+
+### 3. Downloading the Dataset
+To download the dataset for this project, you will need to use the opendatasets library. Follow these steps:
+
+**Kaggle Account:**
+
+You must have a Kaggle account. If you don’t have one, you can sign up at Kaggle.
+
+**Create Kaggle API Token**
+
+Go to your Kaggle account settings by clicking on your profile picture in the top right corner and selecting "Account".
+Scroll down to the "API" section and click on the "Create New API Token" button. This will download a file named kaggle.json.
+Setting Up Your Environment
+
+**Place the kaggle.json File:**
+
+Move the downloaded kaggle.json file to the appropriate directory ~/notebooks/
