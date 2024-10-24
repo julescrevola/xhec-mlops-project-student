@@ -70,7 +70,7 @@ cd <repository-directory>
 
 ### 2. Set Up the Python Environment
 
-**Option 1: Using pip**
+**Using conda**
 
 - Install the app dependencies by running the following command:
 ```bash
@@ -82,11 +82,15 @@ pip-compile requirements.in
 pip-compile requirements-dev.in
 ```
 
-**Option 2: Using conda**
-
 - If you're using conda, create and activate a new environment from the environment.yml
 ```bash
 conda env create -f environment.yml
+conda activate <env_name>
+```
+
+- If you need to update the environment after having compiled the requirements with new packages, you can run
+```bash
+conda env update -f environment.yml --prune
 conda activate <env_name>
 ```
 
