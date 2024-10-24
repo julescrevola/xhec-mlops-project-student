@@ -74,12 +74,12 @@ cd <repository-directory>
 
 - Install the app dependencies by running the following command:
 ```bash
-pip install -r requirements.txt
+pip-compile requirements.in
 ```
 
 - If you are contributing to the development of this project, install the development dependencies:
 ```bash
-pip install -r requirements-dev.txt
+pip-compile requirements-dev.in
 ```
 
 **Option 2: Using conda**
