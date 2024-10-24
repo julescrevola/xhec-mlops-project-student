@@ -85,3 +85,10 @@ secrets/*
 
 # Mac files
 .DS_Store
+
+#Venv for data profiling
+synth-env/
+
+#Not adding data sources
+data/abalone.csv
+
