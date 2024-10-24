@@ -22,6 +22,18 @@
 
 ## Description
 
+## Contributors
+
+| Name                     | Email                                      |
+|--------------------------|--------------------------------------------|
+| [Jules Crevola](mailto:julescrevola@email.com)       | julescrevola@email.com           |
+| [Ghali Chraibi](mailto:ghali.chraibi@polytechnique.edu) | ghali.chraibi@polytechnique.edu  |
+| [Carlo Antonio Patti](mailto:carlopatti1@gmail.com)  | carlopatti1@gmail.com            |
+| [Mohamed Benslimane](mailto:benslimane15.mohamed@gmail.com) | benslimane15.mohamed@gmail.com   |
+| [Antonio Roberto Ventura](mailto:antonio.ventu@hotmail.com) | antonio.ventu@hotmail.com        |
+
+## Description
+
 This repository has for purpose to industrialize the [Abalone age prediction](https://www.kaggle.com/datasets/rodolfomendes/abalone-dataset) Kaggle contest.
 
 <details>
@@ -62,6 +74,22 @@ Ensure you have the following installed:
 ### 1. Clone the Repository
 
 First, clone the repository to your local machine:
+# Environment Setup
+
+This section outlines the steps to set up the Python environment for this project.
+
+## Prerequisites
+Ensure you have the following installed:
+- **Python 3.x**
+- **pip** (Python package installer)
+- (Optional) **conda** (if you are using it to manage environments)
+- **pre-commit** (for running pre-commit hooks)
+
+## Setup Instructions
+
+### 1. Clone the Repository
+
+First, clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/julescrevola/xhec-mlops-project-student
@@ -70,11 +98,33 @@ cd <repository-directory>
 
 ### 2. Set Up the Python Environment
 
-**Using conda**
+**Option 1: Using pip**
 
 - Install the app dependencies by running the following command:
 ```bash
-pip-compile requirements.in
+pip install -r requirements.txt
+```
+
+- If you are contributing to the development of this project, install the development dependencies:
+```bash
+pip install -r requirements-dev.txt
+```
+
+**Option 2: Using conda**
+
+- If you're using conda, create and activate a new environment from the environment.yml 
+```bash
+conda env create -f environment.yml
+conda activate <env_name>
+```
+
+**Option for dev-only: Setup Pre-commit Hooks**
+
+To ensure code quality and enforce coding standards, the project uses pre-commit hooks:
+
+Install the pre-commit hooks defined in ```pre-commit-config.yaml```
+```bash
+pre-commit install
 ```
 
 - If you are contributing to the development of this project, install the development dependencies:
