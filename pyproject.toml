@@ -5,17 +5,42 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "xhec-mlops-project-student"
 authors = [
-  { name = "username", email = "user@email.com" },
-] # TODO: add authors here
+  { name = "Jules Crevola", email = "julescrevola@email.com" },
+  {name = "Ghali Chraibi", email = "ghali.chraibi@polytechnique.edu"},
+  {name = "Carlo Antonio Patti", email = "carlopatti1@gmail.com"},
+  {name = "Mohamed Benslimane", email = "benslimane15.mohamed@gmail.com"},
+  {name = "Antonio Roberto Ventura", email = "antonio.ventu@hotmail.com"}
+]
 description = "This repository contains the solution for the X-HEC MLOps Project on the industrialization of Abalone age prediction model."
 version = "0.0.1"
 readme = "README.md"
-requires-python = ">3.10" # TODO: update this version
+requires-python = ">=3.10"
 
 [project.urls]
-"Homepage" = "https://github.com/artefactory/xhec-mlops-project-student" # TODO: update this URL
+"Homepage" = "https://github.com/julescrevola/xhec-mlops-project-student"
 
 [tool.setuptools]
 packages = ["src"]
 
-# TODO: add black, isort, and ruff (optional - not needed if using flake8) configurations here
+[tool.black]
+line-length = 120
+target-version = ['py310']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  | .ipynb_checkpoints
+  | __pycache__
+)/
+'''
+[tool.isort]
+profile = "black"
+known_first_party = ["src"]
+
+[tool.flake8]
+max-line-length = 120
+max-complexity = 10
+extend-exclude = '''
+/(
+  | __pycache__
+)/
+'''

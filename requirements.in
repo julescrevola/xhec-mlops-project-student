@@ -1,2 +1,26 @@
+<<<<<<< HEAD
 # TODO - complete with requirements (pandas, sklearn etc...)
 # Then, execute "pip-compile requirements.in" to generate the file requirements.txt
+=======
+pandas==2.1.1
+seaborn==0.12.2
+mlflow==2.7.1
+scikit-learn==1.3.1
+prefect==2.13.7
+loguru==0.7.2
+griffe<1.0.0
+pydantic>2
+
+### used in eda
+matplotlib==3.9.2
+matplotlib-inline==0.1.7
+numpy>=1.16.0, <2.2
+ydata-profiling
+plotly==5.24.1
+ipykernel>=6.0.0
+nbformat>=4.2.0
+ipywidgets
+kaleido
+python-dotenv==1.0.1
+opendatasets==0.1.22
+>>>>>>> b8fa4e21958aa2f2f76a7cdfcf2bf1d69c4a704f
