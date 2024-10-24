@@ -181,10 +181,13 @@ secrets/*
 .DS_Store
 
 
-# Csv files
+# Data files
 *.csv 
-data
-abalone-dataset
+data/
+notebooks/abalone-dataset/
+kaggle.json
+
+
 # Not adding mlflow artifacts
 mlruns/
 
